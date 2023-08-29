@@ -1,0 +1,4 @@
+.vscode
+tmp
+contrib/deployment/chart/charts
+nkajdavk-*.tgz
