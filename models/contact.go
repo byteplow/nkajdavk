@@ -21,7 +21,7 @@ type Contact struct {
 	AddressLineOneGuardianOne   string `form:"AddressLineOneGuardianOne"`
 	AddressLineTowGuardianOne   string `form:"AddressLineTowGuardianOne"`
 	AddressLineThreeGuardianOne string `form:"AddressLineThreeGuardianOne"`
-	ForenameGuardianTow         string `form:"AddressLineThreeGuardianOne"`
+	ForenameGuardianTow         string `form:"ForenameGuardianTow"`
 	SurnameGuardianTow          string `form:"SurnameGuardianTow"`
 	EmailGuardianTow            string `form:"EmailGuardianTow"`
 	EmailListGuardianTow        bool   `from:"EmailListGuardianTow"`
