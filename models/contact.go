@@ -33,7 +33,7 @@ type Contact struct {
 }
 
 func CreateOrUpdateContact(contact *Contact) (err error) {
-	if err = DB.Debug().Save(contact).Error; err != nil {
+	if err = DB.Save(contact).Error; err != nil {
 		return err
 	}
 
@@ -41,7 +41,15 @@ func CreateOrUpdateContact(contact *Contact) (err error) {
 }
 
 func GetContact(contact *Contact, token string) (err error) {
-	if err = DB.Debug().First(contact, "token = ?", token).Error; err != nil {
+	if err = DB.First(contact, "token = ?", token).Error; err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func GetContacts(contacts *[]Contact) (err error) {
+	if err = DB.Find(contacts).Error; err != nil {
 		return err
 	}
 

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>(Notfall)kontakt Abfrage</title>
+    </head>
+    <body>
+        <div>
+            <h1 class="text-center mb-3 pt-3 pb-3" style="background-color: #75AD3E; color: #fff">(Notfall)kontakt Abfrage des JDAV Kiel</h1>
+            
+            <div class="container-md mt-5">
+                {{range .}}
+                    <div class="card mb-4">
+                        <div class="card-body row">
+                            <div class="mb-2 col-md-4">
+                                <h5>Participant</h5>
+                                Name: {{.ForenameChild}} {{.SurnameChild}}</br>
+                                Birthdate: {{.BirthdateChild}}</br>
+                                Email: {{.EmailChild}}</br>
+                                EmailList: {{.EmailListChild}}</br>
+                                Phonenumber: {{.PhonenumberChild}}</br>
+                                MembershipNumber: {{.MembershipNumberChild}}</br>
+                                Address: </br>
+                                {{.AddressLineOneChild}}</br>
+                                {{.AddressLineTowChild}}</br>
+                                {{.AddressLineThreeChild}}</br>
+                            </div>
+                            <div class="mb-2 col-md-4">
+                                <h5>Guardian One</h5>
+                                Name: {{.ForenameGuardianOne}} {{.SurnameGuardianone}}</br>
+                                Email: {{.EmailGuardianOne}}</br>
+                                EmailList: {{.EmailListGuardianOne}}</br>
+                                Phonenumber: {{.PhonenumberOneGuardianOne}}</br>
+                                Phonenumber: {{.PhonenumberTowGuardianOne}}</br>
+                                Address: </br>
+                                {{.AddressLineOneGuardianOne}}</br>
+                                {{.AddressLineTowGuardianOne}}</br>
+                                {{.AddressLineThreeGuardianOne}}</br>
+                            </div>
+                            <div class="mb-2 col-md-4">
+                                <h5>Guardian Tow</h5>
+                                Name: {{.ForenameGuardianTow}} {{.SurnameGuardianTow}}</br>
+                                Email: {{.EmailGuardianTow}}</br>
+                                EmailList: {{.EmailListGuardianTow}}</br>
+                                Phonenumber: {{.PhonenumberOneGuardianTow}}</br>
+                                Phonenumber: {{.PhonenumberTowGuardianTow}}</br>
+                                Address: </br>
+                                {{.AddressLineOneGuardianTow}}</br>
+                                {{.AddressLineTowGuardianTow}}</br>
+                                {{.AddressLineThreeGuardianTow}}</br>
+                            </div>
+                            
+
+                            <a href="/form/{{.Token}}"><button class="btn" style="background-color: #75AD3E; color: #fff;">edit</button></a>
+                        </div>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+    </body>
+</html>

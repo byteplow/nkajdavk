@@ -1,8 +1,6 @@
 package main
 
 import (
-	"log"
-
 	"github.com/byteplow/nkajdavk/helper"
 	"github.com/byteplow/nkajdavk/models"
 	"github.com/byteplow/nkajdavk/routes"
@@ -10,12 +8,13 @@ import (
 )
 
 func main() {
-	log.Println(1)
-
 	gin.SetMode(helper.GetEnv("NKA_MODE", "debug")) // debug or release
-	r := routes.SetupRouter()
+	user := helper.GetEnv("NKA_USER", "user")
+	password := helper.GetEnv("NKA_PASSWORD", "password") // not hashed :(
 
-	dsn := helper.GetEnv("NKA_DSN", ":memory:") // :memory: or file path
+	r := routes.SetupRouter(user, password)
+
+	dsn := helper.GetEnv("NKA_DSN", "dev.sqllite") // :memory: or file path
 	models.SetupDatabase(dsn)
 
 	addr := helper.GetEnv("NKA_ADDRESS", ":8080")

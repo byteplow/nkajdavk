@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func SetupRouter() *gin.Engine {
+func SetupRouter(user string, password string) *gin.Engine {
 	r := gin.Default()
 
 	r.LoadHTMLGlob("./templates/*")
@@ -22,6 +22,10 @@ func SetupRouter() *gin.Engine {
 	}
 
 	r.GET("/success/:token", controllers.GetSuccess)
+
+	r.GET("/list", gin.BasicAuth(gin.Accounts{
+		user: password,
+	}), controllers.GetList)
 
 	r.GET("/", controllers.GetIndex)
 
