@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>(Notfall)kontakt Abfrage</title>
+    </head>
+    <body>
+        <div>
+            <h1 class="text-center mb-3 pt-3 pb-3" style="background-color: #75AD3E; color: #fff">(Notfall)kontakt Abfrage des JDAV Kiel</h1>
+            
+            <div class="container-md">
+                <form class="border border-light p-2 row g-3 needs-validation" action="/form/{{.Token}}" method="POST" novalidate>
+                    <p class="h4 mb-1 text-center">Teilnehmer:in</p>
+
+                    <div class="col-md-6 mb-2">
+                        <input type="text" placeholder="Vorname" class="form-control" name="ForenameChild" value="{{.ForenameChild}}" eerequired>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <input type="text" placeholder="Nachname" class="form-control" name="SurnameChild" value="{{.SurnameChild}}" eerequired>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <input type="date" placeholder="Geburtsdatum" class="form-control" name="BirthdateChild" value="{{.BirthdateChild}}" eerequired>
+                    </div>
+
+                    <div class="col-md-10 mb-2">
+                        <input type="email" placeholder="Email" class="form-control" name="EmailChild" value="{{.EmailChild}}">
+                    </div>
+
+                    <div class="col-md-2 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" name="EmailListChild" value="true" {{if .EmailListChild }}checked{{end}}>
+                            </div>
+                            <span class="input-group-text col">Email Verteiler</span>
+                            </div>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <input type="text" placeholder="Telefonnummer" class="form-control" name="PhonenumberChild" value="{{.PhonenumberChild}}">
+                    </div>
+                    
+                    <div class="col-md-4 mb-0">
+                        <input type="text" placeholder="Straße, Hausnummer" class="form-control" name="AddressLineOneChild" value="{{.AddressLineOneChild}}" id="AddressLineOneChild" eerequired>
+                    </div>
+                    <div class="col-md-4 mb-0">
+                        <input type="text" placeholder="Addresszusatz" class="form-control" name="AddressLineTowChild" value="{{.AddressLineTowChild}}" id="AddressLineTowChild">
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <input type="text" placeholder="Postleitzahl, Stadt" class="form-control" name="AddressLineThreeChild" value="{{.AddressLineThreeChild}}" id="AddressLineThreeChild" eerequired>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <input type="text" placeholder="DAV Mitgliedsnummer" class="form-control" name="MembershipNumberChild" value="{{.MembershipNumberChild}}">
+                    </div>
+
+
+                    <p class="h4 mb-1 text-center">Erziehungsberechtigte:r</p>
+
+                    <div class="col-md-6 mb-2">
+                        <input type="text" placeholder="Vorname" class="form-control" name="ForenameGuardianOne" value="{{.ForenameGuardianOne}}" eerequired>
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <input type="text" placeholder="Nachname" class="form-control" name="SurnameGuardianone" value="{{.SurnameGuardianone}}" eerequired>
+                    </div>
+
+                    <div class="col-md-10 mb-2">
+                        <input type="email" placeholder="Email" class="form-control" name="EmailGuardianOne" value="{{.EmailGuardianOne}}" eerequired>
+                    </div>
+
+                    <div class="col-md-2 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" name="EmailListGuardianOne" value="{{.EmailListGuardianOne}}">
+                            </div>
+                            <span class="input-group-text col">Email Verteiler</span>
+                            </div>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <input type="text" placeholder="Telefonnummer 1" class="form-control" name="PhonenumberOneGuardianOne" value="{{.PhonenumberOneGuardianOne}}" eerequired>
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <input type="text" placeholder="Telefonnummer 2 (Optional)" class="form-control" name="PhonenumberTowGuardianOne" value="{{.PhonenumberTowGuardianOne}}">
+                    </div>
+                    
+                    <div class="col-md-4 mb-0">
+                        <input type="text" placeholder="Straße, Hausnummer" class="form-control" name="AddressLineOneGuardianOne" value="{{.AddressLineOneGuardianOne}}" id="AddressLineOneGuardianOne" eerequired>
+                    </div>
+                    <div class="col-md-3 mb-0">
+                        <input type="text" placeholder="Addresszusatz" class="form-control" name="AddressLineTowGuardianOne" value="{{.AddressLineTowGuardianOne}}" id="AddressLineTowGuardianOne">
+                    </div>
+                    <div class="col-md-3 mb-0">
+                        <input type="text" placeholder="Postleitzahl, Stadt" class="form-control" name="AddressLineThreeGuardianOne" value="{{.AddressLineThreeGuardianOne}}" id="AddressLineThreeGuardianOne" eerequired>
+                    </div>
+
+                    <div class="col-md-2 mb-4">
+                        <button class="btn btn-outline-secondary col-12" type="button" onclick="copy_address('GuardianOne')" >wie oben</button>
+                    </div>
+
+            
+                    <p class="h4 mb-1 text-center">Erziehungsberechtigte:r (Optional)</p>
+
+                    <div class="col-md-6 mb-2">
+                        <input type="text" placeholder="Vorname" class="form-control" name="AddressLineThreeGuardianOne" value="{{.AddressLineThreeGuardianOne}}">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <input type="text" placeholder="Nachname" class="form-control" name="SurnameGuardianTow" value="{{.SurnameGuardianTow}}">
+                    </div>
+
+                    <div class="col-md-10 mb-2">
+                        <input type="email" placeholder="Email" class="form-control" name="EmailGuardianTow" value="{{.EmailGuardianTow}}">
+                    </div>
+
+                    <div class="col-md-2 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-text">
+                                <input class="form-check-input mt-0" type="checkbox" name="EmailListGuardianTow" value="{{.EmailListGuardianTow}}">
+                            </div>
+                            <span class="input-group-text col">Email Verteiler</span>
+                            </div>
+                    </div>
+
+                    <div class="col-md-12 mb-2">
+                        <input type="text" placeholder="Telefonnummer 1" class="form-control" name="PhonenumberOneGuardianTow" value="{{.PhonenumberOneGuardianTow}}">
+                    </div>
+                    <div class="col-md-12 mb-2">
+                        <input type="text" placeholder="Telefonnummer 2" class="form-control" name="PhonenumberTowGuardianTow" value="{{.PhonenumberTowGuardianTow}}">
+                    </div>
+                    
+                    <div class="col-md-4 mb-0">
+                        <input type="text" placeholder="Straße, Hausnummer" class="form-control" name="AddressLineOneGuardianTow" value="{{.AddressLineOneGuardianTow}}" id="AddressLineOneGuardianTow">
+                    </div>
+                    <div class="col-md-3 mb-0">
+                        <input type="text" placeholder="Addresszusatz" class="form-control" name="AddressLineTowGuardianTow" value="{{.AddressLineTowGuardianTow}}" id="AddressLineTowGuardianTow">
+                    </div>
+                    <div class="col-md-3 mb-0">
+                        <input type="text" placeholder="Postleitzahl, Stadt" class="form-control" name="AddressLineThreeGuardianTow" value="{{.AddressLineThreeGuardianTow}}" id="AddressLineThreeGuardianTow">
+                    </div>
+
+                    <div class="col-md-2 mb-4">
+                        <button class="btn btn-outline-secondary col-12" type="button" onclick="copy_address('GuardianTow')" >wie oben</button>
+                    </div>
+            
+                    <div class="col-md-12 mb-3">
+                        <button class="btn col-12" style="background-color: #75AD3E; color: #fff;" type="submit">Speichen</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            // (function () {
+            // 'use strict'
+
+            // // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            // var forms = document.querySelectorAll('.needs-validation')
+
+            // // Loop over them and prevent submission
+            // Array.prototype.slice.call(forms)
+            //     .forEach(function (form) {
+            //     form.addEventListener('submit', function (event) {
+            //         if (!form.checkValidity()) {
+            //         event.preventDefault()
+            //         event.stopPropagation()
+            //         }
+
+            //         form.classList.add('was-validated')
+            //     }, false)
+            //     })
+            // })()
+
+            function copy_address(target) {
+                document.getElementById('AddressLineOne'+target).value = document.getElementById('AddressLineOneChild').value;
+                document.getElementById('AddressLineTow'+target).value = document.getElementById('AddressLineTowChild').value;
+                document.getElementById('AddressLineThree'+target).value = document.getElementById('AddressLineThreeChild').value;
+            }
+        </script>
+    </body>
+</html>

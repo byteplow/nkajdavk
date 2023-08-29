@@ -1,0 +1,5 @@
+config:
+  hostname: nka.jdav.u8.vc
+image:
+  image: docker.io/byteplow/nkajdavk:gitshaplaceholder
+  pullPolicy: ""
