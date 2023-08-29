@@ -17,3 +17,6 @@ publisch: build helmbuild
 	podman push docker.io/byteplow/nkajdavk:$$(git rev-parse --short HEAD)
 
 	helm push nkajdavk-*-$$(git rev-parse --short HEAD).tgz oci://docker.io/byteplow
+
+install: publisch
+	helm upgrade --install august oci://registry-1.docker.io/byteplow/nkajdavk --version $$(git rev-parse --short HEAD)
