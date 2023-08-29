@@ -23,3 +23,17 @@ spec:
               containerPort: 80
               protocol: TCP
           securityContext: {}
+          env:
+            - name: NKA_MODE
+              value: release
+            - name: NKA_ADDRESS
+              value: :80
+            - name: NKA_DSN
+              value: /var/lib/sqlite/db
+          volumeMounts:
+            - name: sqlite
+              mountPath: /var/lib/sqlite
+      volumes:
+        - name: sqlite
+          persistentVolumeClaim:
+            claimName: {{ include "common.names.fullname" . }}
